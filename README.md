@@ -1,28 +1,29 @@
 # pm <a href='https://degauss-org.github.io/DeGAUSS/'><img src='https://github.com/degauss-org/degauss_template/blob/master/DeGAUSS_hex.png' align='right' height='138.5' /></a>
 
-> short description of geomarker
+> add PM2.5 estimates to geocoded data
 
-[![Docker Build Status](https://img.shields.io/docker/automated/degauss/pm)](https://hub.docker.com/repository/docker/degauss/pm/tags
+[![Docker Build Status](https://img.shields.io/docker/automated/degauss/pm)](https://hub.docker.com/repository/docker/degauss/pm/tags)
 [![GitHub Latest Tag](https://img.shields.io/github/v/tag/degauss-org/pm)](https://github.com/degauss-org/pm/releases)
 
 ## DeGAUSS example call
 
-If `my_address_file_geocoded.csv` is a file in the current working directory with coordinate columns named `lat` and `lon`, then
+If `my_address_file_geocoded.csv` is a file in the current working directory with coordinate columns named `lat` and `lon` and date columns called `start_date` and `end_date` then
 
 ```sh
 docker run --rm -v $PWD:/tmp degauss/pm:0.1 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_pm.csv` with an added column named pm.
+will produce `my_address_file_geocoded_pm_v0.1.csv` with added columns named `pm_pred` and `pm_se`, and a row for each date between the provided `start_date`s and `end_date`s. 
+
+PM data will be downloaded in chunks based on geographic location and year. Our PM estimates are currently private, and access requires authenication through Amazon Web Services (AWS) S3. Please contact us for a credentials file.  This file must be located in the user's working directory when calling the container.
 
 ## geomarker methods
 
-- if any non-trivial methods were developed for geomarker assessment (i.e. inverse distance weighted averaging), then describe them here
+This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repo.
 
 ## geomarker data
 
-- list how geomarker was created, including any scripts within the repo used to do so
-- list where geomarker data is stored in S3 using a hyperlink like: [`s3://path/to/pm.rds`](https://geomarker.s3.us-east-2.amazonaws.com/path/to/pm.rds)
+- PM estimates are stored at: [`s3://pm25-brokamp/`](https://pm25-brokamp.s3.us-east-2.amazonaws.com/)
 
 ## DeGAUSS details
 
