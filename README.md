@@ -13,9 +13,9 @@ If `my_address_file_geocoded.csv` is a file in the current working directory wit
 docker run --rm -v $PWD:/tmp degauss/pm:0.1.1 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_pm_v0.1.csv` with added columns named `pm_pred` and `pm_se`, and a row for each date between the provided `start_date`s and `end_date`s. 
+will produce `my_address_file_geocoded_pm_v0.1.1.csv` with added columns named `pm_pred` and `pm_se`, and a row for each date between the provided `start_date`s and `end_date`s. 
 
-PM data will be downloaded in chunks based on geographic location and year. Our PM estimates are currently private, and access requires authenication through Amazon Web Services (AWS) S3. Please contact us for a credentials file.  This file must be located in the user's working directory when calling the container.
+PM data will be downloaded in chunks based on geographic location and year. Our PM estimates are currently private, and access requires authenication through Amazon Web Services (AWS) S3. Please contact us for a credentials file.  This file must be located in the user's working directory when calling the container. 
 
 ## geomarker methods
 
