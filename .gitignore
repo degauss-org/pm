@@ -3,3 +3,5 @@
 *.qs
 .Rproj.user
 test/pm_aws_user_keys.R
+.DS_Store
+.Rhistory
