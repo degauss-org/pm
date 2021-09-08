@@ -15,8 +15,6 @@ docker run --rm -v $PWD:/tmp degauss/pm:0.1.2 my_address_file_geocoded.csv
 
 will produce `my_address_file_geocoded_pm_v0.1.2.csv` with added columns named `pm_pred` and `pm_se`, and a row for each date between the provided `start_date`s and `end_date`s. 
 
-PM data will be downloaded in chunks based on geographic location and year. Our PM estimates are currently private, and access requires authenication through Amazon Web Services (AWS) S3. Please contact us for a credentials file.  This file must be located in the user's working directory when calling the container. 
-
 ## geomarker methods
 
 This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repo.
