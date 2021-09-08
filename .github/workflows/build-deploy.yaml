@@ -68,8 +68,6 @@ jobs:
           docker images
 
       - name: Log in to GitHub Container Registry
-        # Don't log into registry on pull request.
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           registry: ${{ env.registry }}
@@ -89,5 +87,3 @@ jobs:
         # And Don't log push the container on a pull request.
         if: github.event_name == 'pull_request'
         run: docker push ${{ env.versioned }}
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
