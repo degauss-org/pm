@@ -32,7 +32,7 @@ jobs:
       # A matrix of Dockerfile paths and associated tags
       # Dockerfile in root builds to tag latest
       matrix:
-        dockerfile: [[Dockerfile, latest]
+        dockerfile: [[Dockerfile, latest]]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
