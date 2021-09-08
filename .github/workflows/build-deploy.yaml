@@ -33,7 +33,6 @@ jobs:
       # Dockerfile in root builds to tag latest
       matrix:
         dockerfile: [[Dockerfile, latest]
-        #, [subfolder/Dockerfile, subfolder]]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
