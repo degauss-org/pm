@@ -89,5 +89,5 @@ jobs:
         # And Don't log push the container on a pull request.
         if: github.event_name == 'pull_request'
         run: docker push ${{ env.versioned }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
