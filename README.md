@@ -17,7 +17,7 @@ will produce `my_address_file_geocoded_pm_v0.1.2.csv` with added columns named `
 
 ## geomarker methods
 
-This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repo.
+This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repo and the accompanying manuscript (preprint DOI: https://doi.org/10.20944/preprints202109.0164.v1).
 
 ## geomarker data
 
