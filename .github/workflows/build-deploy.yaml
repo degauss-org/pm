@@ -63,7 +63,7 @@ jobs:
               printf "Dockerfile ${{ matrix.dockerfile[0] }} does not exist"
               exit 1;
           fi
-          docker build -f ${{ matrix.dockerfile[0] }} -t ${{ env.container }} -t ${{ env.versioned }} .
+          docker build -f ${{ matrix.dockerfile[0] }} -t ${{ env.container }} .
           docker images
 
       - name: Test ${{ matrix.dockerfile[1] }}
@@ -85,12 +85,15 @@ jobs:
      # Deploy branch container on pull request
       - name: Test Deploy ${{ env.versioned }}
         if: github.event_name == 'pull_request'
-        run: docker push ${{ env.versioned }}
+        run: |
+          docker tag ${{ env.container }} ${{ env.versioned }}
+          docker push ${{ env.versioned }}
 
     # Deploy release container on release
       - name: Deploy ${{ env.versioned }}
         if: github.event_name == 'release'
         run: |
+          docker tag ${{ env.container }} ${{ env.versioned }}
           docker push ${{ env.versioned }}
           docker push ${{ env.container }}
 
