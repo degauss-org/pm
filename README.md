@@ -10,7 +10,7 @@
 If `my_address_file_geocoded.csv` is a file in the current working directory with coordinate columns named `lat` and `lon` and date columns called `start_date` and `end_date` then
 
 ```sh
-docker run --rm -v $PWD:/tmp degauss/pm:0.1.2 my_address_file_geocoded.csv
+docker run --rm -v $PWD:/tmp degauss/pm:0.1.3 my_address_file_geocoded.csv
 ```
 
 will produce `my_address_file_geocoded_pm_v0.1.2.csv` with added columns named `pm_pred` and `pm_se`, and a row for each date between the provided `start_date`s and `end_date`s. 

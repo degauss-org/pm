@@ -3,7 +3,7 @@ USERNAME=degauss
 NAME=$(shell basename "$(CURDIR)")
 IMAGE=$(REGISTRY_HOST)/$(USERNAME)/$(NAME)
 
-.PHONY: build test shell release clean
+.PHONY: build test shell release clean tag-gh
 
 build:
 	docker build -t $(IMAGE) .
@@ -35,3 +35,9 @@ endif
 
 clean:
 	docker system prune -f
+
+tag-gh:
+ifndef VERSION
+	$(error VERSION is not set. Usage: "make release VERSION=X.X")
+endif
+	docker tag $(IMAGE) ghcr.io/degauss-org/$(NAME):$(VERSION)
