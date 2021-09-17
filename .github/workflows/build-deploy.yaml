@@ -41,7 +41,6 @@ jobs:
         run: |
           container="${{ env.registry }}/${{ env.username}}/${{ env.repository }}:${{ matrix.dockerfile[1] }}"
           echo "container=${container}" >> $GITHUB_ENV
-          echo "versioned=${container}" >> $GITHUB_ENV
 
         # On a new release create a container with the same tag as the release.
       - name: Set Container Tag Release
@@ -91,6 +90,8 @@ jobs:
     # Deploy release container on release
       - name: Deploy ${{ env.versioned }}
         if: github.event_name == 'release'
-        run: docker push ${{ env.versioned }}
+        run: |
+          docker push ${{ env.versioned }}
+          docker push ${{ env.container }}
 
 
