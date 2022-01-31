@@ -1,5 +1,16 @@
 FROM rocker/r-ver:4.0.4
 
+# DeGAUSS container metadata
+ENV degauss_name="pm"
+ENV degauss_version="0.1.3"
+ENV degauss_description="daily PM2.5"
+
+# add OCI labels based on environment variables too
+LABEL "org.degauss.name"="${degauss_name}"
+LABEL "org.degauss.version"="${degauss_version}"
+LABEL "org.degauss.description"="${degauss_description}"
+LABEL "org.degauss.argument"="${degauss_argument}"
+
 # install required version of renv
 RUN R --quiet -e "install.packages('remotes', repos = 'https://cran.rstudio.com')"
 # make sure version matches what is used in the project: packageVersion('renv')
