@@ -16,7 +16,9 @@ will produce `my_address_file_geocoded_pm_v0.1.2.csv` with added columns named `
 
 ## geomarker methods
 
-This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repository and in the scientific manuscript describing model development: `Brokamp, C. A High Resolution Spatiotemporal Fine Particulate Matter Exposure Assessment Model for the Contiguous United States. Environmental Advances. In Press. 2021.` (accepted preprint available online: [https://doi.org/10.1016/j.envadv.2021.100155](https://doi.org/10.1016/j.envadv.2021.100155)).
+This container was built using the [addPmData](https://github.com/geomarker-io/addPmData) package. More information on the development of the spatial model can be found at the [st_pm_hex](https://github.com/geomarker-io/st_pm_hex) repository and in the scientific manuscript describing model development: 
+
+> Cole Brokamp. [A High Resolution Spatiotemporal Fine Particulate Matter Exposure Assessment Model for the Contiguous United States.](https://www.sciencedirect.com/science/article/pii/S2666765721001265) *Environmental Advances*. 7:100155. 2022.
 
 ## geomarker data
 
