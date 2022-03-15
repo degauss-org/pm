@@ -11,12 +11,15 @@ If `my_address_file_geocoded.csv` is a file in the current working directory wit
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/pm:0.2.0 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_pm_0.2.0.csv` with added columns:
+will produce `my_address_file_geocoded_pm_0.2.0.csv`. 
 
-- **`pm_pred`**: predicted PM$_{2.5}$
-- **`pm_se`**: standard error for predicted PM$_{2.5}$
+The output file will contain one row per day between `start_date` and `end_date` for each individual `lat` and `lon` location. This means that the output file will likely contain many more rows than the input file, so using identifiers with this container is useful for merging its output with other sources. 
 
-The output file will containe one row per day between `start_date` and `end_date`. 
+The following columns will be added for each row:
+
+- **`pm_pred`**: predicted PM2.5 (micrograms per cubic meter)
+- **`pm_se`**: standard error for predicted PM2.5
+
 
 ## Geomarker Methods
 
