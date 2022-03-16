@@ -3,4 +3,4 @@
 
 # except what we need
 !/renv.lock
-!/pm.R
+!/entrypoint.R
